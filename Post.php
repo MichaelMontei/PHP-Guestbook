@@ -1,31 +1,45 @@
 <?php
 declare(strict_types=1);
 
-class Post
-{
+class Post {
     private string $title;
+    private string $date;
     private string $content;
-    private string $authorName;
+    private string $author;
 
     /**
-     * @param string $title
-     * @param string $content
-     * @param string $authorName
+     * Post constructor.
+     * @param $title
+     * @param $content
+     * @param $author
      */
-    public function __construct(string $title, string $content, string $authorName)
+    public function __construct($title, $content, $author)
     {
         $this->title = $title;
         $this->content = $content;
-        $this->authorName = $authorName;
+        $this->author = $author;
+        $this->date = date('Y/m/d H-i-s');
     }
 
-    public function getInfo(): string
+    public function getTitle(): string
     {
-        return "The title is $this->title and the Author is $this->authorName, the content is $this->content for testing!";
+        return $this->title;
+    }
+
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
     }
 }
 
 
-
-$test = new Post("The witch", "potter", "Rowling");
-echo $test->getInfo();
