@@ -1,0 +1,10 @@
+#messages-bottom{
+    padding-top: 100px;
+}
+.container-input{
+    justify-content: space-between;
+    align-items: center;
+}
+.card-subtitle{
+    color: red;
+}

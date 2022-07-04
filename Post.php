@@ -1,45 +1,25 @@
-<?php
-declare(strict_types=1);
-
-class Post {
+<?php class Post{
     private string $title;
     private string $date;
-    private string $content;
+    private string $message;
     private string $author;
 
-    /**
-     * Post constructor.
-     * @param $title
-     * @param $content
-     * @param $author
-     */
-    public function __construct($title, $content, $author)
-    {
-        $this->title = $title;
-        $this->content = $content;
-        $this->author = $author;
-        $this->date = date('Y/m/d H-i-s');
+    public function __construct($title,$date, $message, $author){
+        $this->title = htmlspecialchars($title , ENT_QUOTES);
+        $this->date = $date;
+        $this->message = htmlspecialchars($message , ENT_QUOTES);
+        $this->author = htmlspecialchars($author , ENT_QUOTES);
     }
-
-    public function getTitle(): string
-    {
+    public function getTitle(){
         return $this->title;
     }
-
-    public function getDate(): string
-    {
+    public function getDate(){
         return $this->date;
     }
-
-    public function getContent(): string
-    {
-        return $this->content;
+    public function getMessage(){
+        return $this->message;
     }
-
-    public function getAuthor(): string
-    {
+    public function getAuthor(){
         return $this->author;
     }
 }
-
-
